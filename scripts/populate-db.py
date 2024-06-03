@@ -1,7 +1,6 @@
 import mysql.connector
 from mysql.connector import errorcode
 import json
-import os
 
 class RestaurantDatabase:
     def __init__(self, connection):
@@ -74,8 +73,7 @@ if __name__ == "__main__":
         """
     )
 
-    home_directory = os.path.expanduser("~")
-    with open(f'{home_directory}/workspace/spatial-query/scripts/McDonalds.json') as json_file:
+    with open('McDonalds.json') as json_file:
         list_of_mcdonalds = json.load(json_file)
 
     # Insert locations into the database

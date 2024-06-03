@@ -88,6 +88,7 @@ python3 -m http.server -d .
 This starts a web server on http://localhost:8000/
 
 This command will start a server in the current directory (`web`), allowing you to access the web interface in your browser.
-<img width="1512" alt="Screenshot 2024-06-03 at 2 24 09 AM" src="https://github.com/jona62/spatial-query/assets/25422400/1bfaa239-2cd5-45cf-8af4-578ba211f73d">
+![Screenshot 2024-06-03 at 1 57 17 PM](https://github.com/jona62/spatial-query/assets/25422400/436554eb-7426-45c0-b43e-ea763cf75e25)
+
 
 **Note:** Make sure you have Docker, Python and npm installed on your system before running these commands.

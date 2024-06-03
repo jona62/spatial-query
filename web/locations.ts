@@ -65,14 +65,9 @@ function getMcDonaldsWithinRange(latitude: number, longitude: number, range: num
                     <tr><th>Wednesday</th><td>${location.hoursWednesday}</td></tr>
                     <tr><th>Thursday</th><td>${location.hoursThursday}</td></tr>
                     <tr><th>Friday</th><td>${location.hoursFriday}</td></tr>
+                    <tr><th>Saturday</th><td>${location.hoursSaturday}</td></tr>
+                    <tr><th>Sunday</th><td>${location.hoursSunday}</td></tr>
             `;
-
-            if (location.hoursSaturday) {
-                tableContent += `<tr><th>Saturday</th><td>${location.hoursSaturday}</td></tr>`;
-            }
-            if (location.hoursSunday) {
-                tableContent += `<tr><th>Sunday</th><td>${location.hoursSunday}</td></tr>`;
-            }
 
             tableContent += `</table>`;
 

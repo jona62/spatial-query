@@ -38,6 +38,8 @@ def get_mcdonalds_within_range():
                 "hoursWednesday": loc[12],
                 "hoursThursday": loc[13],
                 "hoursFriday": loc[14],
+                "hoursSaturday": loc[15],
+                "hoursSunday": loc[16]
             } for loc in locations
         ]
         return jsonify(json_results)
@@ -83,7 +85,7 @@ class RestaurantDatabase:
         cursor = self.connection.cursor()
         query = """
         SELECT DISTINCT name, latitude, longitude, addressLine1, addressLine2, addressLine3, postcode, telephone, restaurantUrl, openstatus,
-        hoursMonday, hoursTuesday, hoursWednesday, hoursThursday, hoursFriday
+        hoursMonday, hoursTuesday, hoursWednesday, hoursThursday, hoursFriday, hoursSaturday, hoursSunday
         FROM locations 
         WHERE ST_Distance_Sphere(geom, ST_GeomFromText(%s, 4326)) <= %s
         """
@@ -101,29 +103,6 @@ if __name__ == "__main__":
         database="mcdonalds_locations"
     )
     db = RestaurantDatabase(connection)
-    db.create_table(
-        table_name="locations",
-        table_description=
-        """CREATE TABLE IF NOT EXISTS locations (
-            id INT AUTO_INCREMENT PRIMARY KEY,
-            name VARCHAR(255),
-            latitude DOUBLE,
-            longitude DOUBLE,
-            geom POINT NOT NULL SRID 4326,
-            addressLine1 VARCHAR(255),
-            addressLine2 VARCHAR(255),
-            addressLine3 VARCHAR(255),
-            postcode VARCHAR(255),
-            telephone VARCHAR(255),
-            restaurantUrl VARCHAR(255),
-            openstatus VARCHAR(255),
-            hoursMonday VARCHAR(255),
-            hoursTuesday VARCHAR(255),
-            hoursWednesday VARCHAR(255),
-            hoursThursday VARCHAR(255),
-            hoursFriday VARCHAR(255),
-        )"""
-    )
 
     port = int(os.environ.get("PORT", 5001))  # Default to 5001 if PORT is not set
     app.run(port=port, debug=True)

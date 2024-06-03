@@ -34,7 +34,12 @@ After converting the CSV file to JSON, you can populate the MySQL database with 
 python3 populate-db.py
 ```
 
+Using phpMyAdmin, you can visualize the database table at
+http://localhost:8080/ with using name and password `Admin`
+
 This Python script will populate the MySQL database with the data from the JSON file.
+<img width="1500" alt="Screenshot 2024-06-03 at 2 24 34 AM" src="https://github.com/jona62/spatial-query/assets/25422400/3bf15fb7-adbe-4c4a-9d1f-74333bba5f4f">
+
 
 **4. Starting the Flask Server**
 
@@ -85,5 +90,6 @@ python3 -m http.server -d .
 This starts a web server on http://localhost:8000/
 
 This command will start a server in the current directory (`web`), allowing you to access the web interface in your browser.
+<img width="1512" alt="Screenshot 2024-06-03 at 2 24 09 AM" src="https://github.com/jona62/spatial-query/assets/25422400/1bfaa239-2cd5-45cf-8af4-578ba211f73d">
 
-**Note:** Make sure you have Python and npm installed on your system before running these commands.
+**Note:** Make sure you have Docker, Python and npm installed on your system before running these commands.

@@ -69,7 +69,7 @@ def get_mcdonalds_within_range(connection: mysql.connector, latitude: float, lon
         FROM locations 
         WHERE ST_Distance_Sphere(geom, ST_GeomFromText(%s, 4326)) <= %s
     """
-    point = f'POINT({longitude} {latitude})'
+    point = f'POINT({latitude} {longitude})'
     cursor.execute(query, (point, range_km * 1000))  # range_km to meters
     results = cursor.fetchall()
     cursor.close()
